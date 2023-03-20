@@ -10,5 +10,5 @@ public interface ApiInterface {
     @GET("reserveglobalpass/format/json")
     open fun globalPassListing(
         @Header("Authorization") apiKey: String?,
-        @Header("Application-Authorization") apiAuthKey: String?,): Call<GobalPassListingPOJO?>?
+        @Header("Application-Authorization") apiAuthKey: String?): Call<GobalPassListingPOJO?>?
 }

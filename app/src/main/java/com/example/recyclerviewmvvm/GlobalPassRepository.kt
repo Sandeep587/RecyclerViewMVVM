@@ -8,12 +8,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-public class GlobalPassRepository(val apiInterface: ApiInterface) {
+ class GlobalPassRepository(val apiInterface: ApiInterface) {
     private var globalpassListing:MutableLiveData<GobalPassListingPOJO> = MutableLiveData<GobalPassListingPOJO>()
     val globalLiveData:LiveData<GobalPassListingPOJO>
     get() = globalpassListing
 
-    public fun getGlobalPassListing(apikey:String?, authValue:String?):MutableLiveData<GobalPassListingPOJO>{
+     fun getGlobalPassListing(apikey:String?, authValue:String?):MutableLiveData<GobalPassListingPOJO>{
 
         apiInterface.globalPassListing(apikey,authValue)?.enqueue(object :Callback<GobalPassListingPOJO?>{
             override fun onResponse(

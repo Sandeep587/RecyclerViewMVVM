@@ -12,9 +12,9 @@ import com.example.recyclerviewmvvm.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var globalPassViewModel: GlobalPassViewModel
-    private val mContext: Context =this
-    private lateinit var mBinding:ActivityMainBinding
-    private val arrayList=ArrayList<GobalPassListingPOJO>()
+    private val mContext: Context = this
+    private lateinit var mBinding: ActivityMainBinding
+    private val arrayList = ArrayList<GobalPassListingPOJO>()
 //    private
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         val view = mBinding.root
         setContentView(view)
-//        setContentView(R.layout.activity_main)
 
         mBinding.rvGlobalList.layoutManager = LinearLayoutManager(this)
 
@@ -35,11 +34,9 @@ class MainActivity : AppCompatActivity() {
         )[GlobalPassViewModel::class.java]
 
         globalPassViewModel.globalDataList.observe(this) {
-           for( i in it){
-               arrayList.add(it)
-           }
-//            arrayList.add(it)
-
+            for (i in it) {
+                arrayList.add(it)
+            }
             val adapterr = GlobalPassListAdapter(arrayList)
             mBinding.rvGlobalList.adapter = adapterr
             adapterr.notifyDataSetChanged()
